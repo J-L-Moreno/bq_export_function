@@ -1,0 +1,12 @@
+config {
+    type: "view",
+    schema: "10_Bronze",
+    description: "View of the current table in bigquery, added a cloud ID column",
+    name: "00_azure_bronze"
+}
+
+SELECT
+  *,
+  TO_JSON_STRING(STRUCT('azure' AS cloud_name, current_date() AS ingestion_date)) as metadata_json
+FROM
+  ${ref("azure_billing_data_update_dataset", "azure_billing_data")}

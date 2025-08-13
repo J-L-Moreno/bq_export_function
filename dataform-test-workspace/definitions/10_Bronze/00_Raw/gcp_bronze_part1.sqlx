@@ -1,0 +1,13 @@
+config {
+    type: "view",
+    schema: "10_Bronze",
+    description: "View of the current table in bigquery, added a cloud ID column",
+    name: "00_gcp_bronze_part1"
+}
+
+SELECT
+  *,
+  TO_JSON_STRING(STRUCT('gcp' AS cloud_name,
+      CURRENT_DATE() AS ingestion_date)) AS metadata_json
+FROM
+  ${ref("billing_data_export_dataset", "gcp_billing_export_resource_v1_013988_A3BF6E_3D1428")}

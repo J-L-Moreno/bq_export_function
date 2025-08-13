@@ -1,0 +1,11 @@
+config {
+    type: "view",
+    schema: "10_Bronze",
+    description: "Union common columns into a single table along with cloud ID",
+    name: "10_union_azure"
+}
+
+SELECT
+  *
+FROM
+  ${ref("00_azure_bronze")}
