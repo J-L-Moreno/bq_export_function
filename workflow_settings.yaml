@@ -1,0 +1,5 @@
+defaultProject: finops-458309
+defaultLocation: us-central1
+defaultDataset: dataform
+defaultAssertionDataset: dataform_assertions
+dataformCoreVersion: 3.0.0

@@ -1,0 +1,11 @@
+config {
+    type: "incremental",
+    schema: "30_Gold",
+    name: "incremental_table",
+    description: "Incremental data table",
+    uniqueKey:["billing_account_id"]
+}
+
+SELECT *
+FROM ${ref("20_transformation")}
+${when(incremental(), `WHERE ingestion_date > (SELECT MAX(ingestion_date) FROM ${self()})`)}

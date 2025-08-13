@@ -1,0 +1,6 @@
+config {
+    type: "declaration",
+    database: "finops-458309",
+    schema: "billing_data_export_dataset",
+    name: "gcp_billing_export_v1_013988_A3BF6E_3D1428"
+}

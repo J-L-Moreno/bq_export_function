@@ -1,0 +1,15 @@
+
+config {
+    type: "table",
+    description: "Cleaned and transformed AWS billing data where billed_cost is NOT NULL.",
+    schema: "20_Silver",
+    name: "20_10_aws_transformed",
+    dependencies: ["20_00_aws_dedup"]
+}
+
+SELECT
+  *
+FROM
+  ${ref("20_00_aws_dedup")}
+WHERE
+  billed_cost IS NOT NULL
