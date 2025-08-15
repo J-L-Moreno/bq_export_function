@@ -1,9 +1,0 @@
-config {
-    type: "view",
-    description: "Union of quality data across all clouds",
-    name: "30_view_everything",
-    schema: "30_Gold"
-}
-
-SELECT *
-FROM ${ref("20_transformation")}

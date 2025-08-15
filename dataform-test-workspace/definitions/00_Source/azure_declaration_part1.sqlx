@@ -1,6 +1,0 @@
-config {
-    type: "declaration",
-    database: "finops-458309",
-    schema: "azure_billing_data_update_dataset",
-    name: "azure_billing_data"
-}

@@ -1,9 +1,0 @@
-config {
-    type: "view",
-    schema: "10_Bronze",
-    description: "View of the current table in bigquery, added a cloud ID column",
-    name: "00_aws_bronze"
-}
-
-SELECT *, TO_JSON_STRING(STRUCT('aws' AS cloud_name, current_date() AS ingestion_date)) as metadata_json
-FROM ${ref("aws_billing_data_update_dataset", "aws_billing_data")}
